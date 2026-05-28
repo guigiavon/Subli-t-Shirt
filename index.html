@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SubliTshirt - Sublimación & Impresión 3D</title>
+    <!-- Iconos para Redes Sociales -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --brand-color: #ff3b30; /* El rojo característico de SubliTshirt */
+            --dark-bg: #121214;
+            --card-bg: #ffffff;
+            --text-dark: #212529;
+            --text-light: #f8f9fa;
+            --text-muted: #6c757d;
+            --whatsapp-green: #25d366;
+            --facebook-blue: #1877f2;
+            --instagram-pink: #e1306c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        nav {
+            background-color: rgba(18, 18, 20, 0.95);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--brand-color);
+            font-style: italic;
+            letter-spacing: -1px;
+        }
+
+        .logo-text span {
+            color: white;
+            font-size: 1.4rem;
+            font-style: normal;
+            margin-left: 2px;
+        }
+
+        .nav-socials a {
+            color: white;
+            font-size: 1.5rem;
+            margin-left: 15px;
+            transition: color 0.3s;
+        }
+
+        .nav-socials a.fb:hover { color: var(--facebook-blue); }
+        .nav-socials a.ig:hover { color: var(--instagram-pink); }
+
+        /* Hero Section */
+        header {
+            background: linear-gradient(135deg, rgba(18, 18, 20, 0.9) 0%, rgba(40, 40, 45, 0.85) 100%), 
+                        url('https://images.unsplash.com/photo-1615840287214-7fe58a8f3685?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--text-light);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .header-content {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        header h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        header h1 span {
+            color: var(--brand-color);
+        }
+
+        header p {
+            font-size: 1.3rem;
+            color: #dddddf;
+            margin-bottom: 35px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--brand-color);
+            color: white;
+            padding: 16px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.15rem;
+            box-shadow: 0 5px 20px rgba(255, 59, 48, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 59, 48, 0.6);
+            background-color: #ff2417;
+        }
+
+        /* Sección Títulos */
+        .section-title {
+            text-align: center;
+            margin: 60px 20px 20px;
+            font-size: 2.2rem;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background-color: var(--brand-color);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        /* Servicios */
+        .services {
+            max-width: 1140px;
+            margin: 0 auto 40px;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            flex: 1;
+            min-width: 320px;
+            max-width: 540px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-img {
+            height: 240px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .img-3d {
+            background-image: url('1.jpg'); /* Usamos tus llaveros como portada de 3D */
+        }
+
+        .img-subli {
+            background-image: url('Gorra.jpg'); /* Portada de sublimación */
+        }
+
+        .card-body {
+            padding: 35px;
+            flex-grow: 1;
+        }
+
+        .card h2 {
+            font-size: 1.75rem;
+            margin-bottom: 15px;
+            color: var(--dark-bg);
+        }
+
+        .card ul {
+            list-style: none;
+        }
+
+        .card ul li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 28px;
+        }
+
+        .card ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--brand-color);
+            font-weight: bold;
+        }
+
+        /* Galería de Trabajos Reales */
+        .gallery-container {
+            max-width: 1140px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .gallery-item {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-item p {
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--dark-bg);
+            background-color: #ffffff;
+            margin-top: auto;
+            border-top: 1px solid #f1f1f4;
+        }
+
+        /* Cómo Trabajamos */
+        .steps-section {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            padding: 70px 20px;
+        }
+
+        .steps-container {
+            max-width: 1000px;
+            margin: 40px auto 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 280px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 35px 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .step-num {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--brand-color);
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0b0b0c;
+            color: white;
+            text-align: center;
+            padding: 60px 20px 40px;
+        }
+
+        footer p {
+            margin-bottom: 25px;
+            color: #a0a0a5;
+        }
+
+        .btn-wp {
+            background-color: var(--whatsapp-green);
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .btn-wp:hover {
+            background-color: #20ba5a;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+        }
+
+        .footer-socials {
+            margin-bottom: 30px;
+        }
+
+        .footer-socials a {
+            color: white;
+            font-size: 2rem;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        .footer-socials a.fb:hover { color: var(--facebook-blue); }
+        .footer-socials a.ig:hover { color: var(--instagram-pink); }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.3rem; }
+            .card { min-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo-text">Subli<span>Tshirt</span></div>
+        <div class="nav-socials">
+            <a href="https://www.facebook.com/search/top/?q=subli-t-shirt" class="fb" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/sublitshirt/" class="ig" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header>
+        <div class="header-content">
+            <h1>Hacemos Realidad <span>tus Ideas</span></h1>
+            <p>Especialistas en Impresión 3D de alta definición y Sublimación personalizada con colores vibrantes. Diseños únicos y producciones por mayor y menor.</p>
+            <a href="https://wa.me/5493513213802?text=Hola!%20Quiero%20cotizar%20un%20trabajo" class="btn" target="_blank">¡Cotizá tu idea por WhatsApp!</a>
+        </div>
+    </header>
+
+    <!-- SERVICIOS -->
+    <h2 class="section-title">Nuestros Servicios</h2>
+    <p class="section-subtitle">Calidad garantizada en cada técnica de personalización</p>
+    <section class="services">
+        <div class="card">
+            <div class="card-img img-3d"></div>
+            <div class="card-body">
+                <h2>Impresión 3D 🛠️</h2>
+                <ul>
+                    <li>Llaveros corporativos y souvenirs con nombres personalizados</li>
+                    <li>Figuras coleccionables y soportes a medida</li>
+                    <li>Repuestos mecánicos y piezas industriales plásticas</li>
+                    <li>Producciones en serie con acabados prolijos</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img img-subli"></div>
+            <div class="card-body">
+                <h2>Sublimación Personalizada 🎨</h2>
+                <ul>
+                    <li>Gorras trucker estampadas por mayor y menor</li>
+                    <li>Chopps de cerámica y polímero para regalos especiales</li>
+                    <li>Indumentaria personalizada (remeras blancas, negras y más)</li>
+                    <li>Kits escolares, sets de jardín y tazas mágicas originales</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERÍA DE TRABAJOS REALES -->
+    <h2 class="section-title">Galería de Productos</h2>
+    <p class="section-subtitle">Mirá los últimos trabajos entregados a nuestros clientes</p>
+    
+    <section class="gallery-container">
+        <!-- Fila de Indumentaria y Gorras -->
+        <div class="gallery-item">
+            <img src="Gorra.jpg" alt="Gorras Personalizadas">
+            <p>Gorras Trucker por Mayor</p>
+        </div>
+        <div class="gallery-item">
+            <img src="RemeraBlanca.gif" alt="Remera Blanca Simona">
+            <p>Remeras Infantiles Personalizadas</p>
+        </div>
+        <div class="gallery-item">
+            <img src="Remeranegra.gif" alt="Remera Negra Among Us">
+            <p>Estampados Temáticos en Remeras</p>
+        </div>
+
+        <!-- Fila de Regalería y Tazas/Chopps -->
+        <div class="gallery-item">
+            <img src="chop.jpg" alt="Chopp Personalizado Día del Padre">
+            <p>Chopps Personalizados para Regalos</p>
+        </div>
+        <div class="gallery-item">
+            <img src="Choppceramica.gif" alt="Chopp de Cerámica Personalizado">
+            <p>Chopps de Cerámica de Alta Calidad</p>
+        </div>
+        <div class="gallery-item">
+            <img src="tazamagica.jpg" alt="Taza Mágica Personalizada">
+            <p>Tazas Mágicas Sorpresa</p>
+        </div>
+        <div class="gallery-item">
+            <img src="setdejardin.gif" alt="Set de Jardín Completo">
+            <p>Sets Escolares y de Jardín</p>
+        </div>
+        <div class="gallery-item">
+            <img src="matermo.jpg" alt="Mate Térmico Personalizado">
+            <p>Mates y Vasos Térmicos</p>
+        </div>
+
+        <!-- Fila de Impresión 3D -->
+        <div class="gallery-item">
+            <img src="1.jpg" alt="Llaveros 3D con nombres">
+            <p>Llaveros con Nombres en Impresión 3D</p>
+        </div>
+        <div class="gallery-item">
+            <img src="2.jpg" alt="Llaveros Souvenirs 3D">
+            <p>Souvenirs y Llaveros Corporativos</p>
+        </div>
+    </section>
+
+    <!-- CÓMO TRABAJAMOS -->
+    <section class="steps-section">
+        <h2 class="section-title" style="color: white;">¿Cómo es el proceso?</h2>
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-num">1</div>
+                <h3>Escribinos</h3>
+                <p>Mandanos un mensaje con tu idea o tu logo por WhatsApp o Redes Sociales.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <h3>Cotizamos</h3>
+                <p>Te pasamos el presupuesto y los tiempos de armado al instante.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <h3>¡Listo!</h3>
+                <p>Lo fabricamos con la mejor calidad y coordinamos el retiro o envío.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO / CIERRE -->
+    <footer>
+        <div class="logo-text" style="margin-bottom: 20px;">Subli<span>Tshirt</span></div>
+        <h2>¿Tenés un proyecto en mente?</h2>
+        <p>¡Hablemos hoy mismo y armemos tu diseño personalizado!</p>
+        
+        <a href="https://wa.me/5493513213802?text=Hola!%20Quiero%20hacer%20una%20consulta%20sobre%20un%20producto" class="btn btn-wp" target="_blank"><i class="fab fa-whatsapp"></i> Chatear por WhatsApp</a>
+        
+        <div class="footer-socials">
+            <a href="https://www.facebook.com/search/top/?q=subli-t-shirt" class="fb" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/sublitshirt/" class="ig" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+
+        <p style="font-size: 0.85rem; color: #6c757d;">&copy; 2026 SubliTshirt. Todos los derechos reservados. Córdoba, Argentina.</p>
+    </footer>
+
+</body>
+</html>

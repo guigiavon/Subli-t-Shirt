@@ -17,6 +17,7 @@
             --whatsapp-green: #25d366;
             --facebook-blue: #1877f2;
             --instagram-pink: #e1306c;
+            --patria-blue: #74acdf; /* Celeste institucional para la sección especial */
         }
 
         * {
@@ -122,6 +123,73 @@
             background-color: #ff2417;
         }
 
+        /* SECCIÓN ESPECIAL: JURA DE LA BANDERA */
+        .promo-bandera {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f7fc 100%);
+            border-left: 8px solid var(--patria-blue);
+            border-right: 8px solid var(--patria-blue);
+            max-width: 1140px;
+            margin: 40px auto 10px;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(116, 172, 223, 0.15);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .promo-bandera-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .promo-bandera-text h2 {
+            font-size: 2.2rem;
+            color: #1d3557;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .promo-bandera-text h2 span {
+            color: var(--patria-blue);
+        }
+
+        .promo-bandera-text p {
+            font-size: 1.15rem;
+            margin-bottom: 20px;
+            color: #4a5568;
+        }
+
+        .promo-bandera-img {
+            flex: 1;
+            min-width: 300px;
+            max-width: 550px;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .promo-bandera-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s;
+        }
+
+        .promo-bandera-img img:hover {
+            transform: scale(1.02);
+        }
+
+        .btn-patrio {
+            background-color: var(--patria-blue);
+            box-shadow: 0 5px 15px rgba(116, 172, 223, 0.4);
+        }
+        .btn-patrio:hover {
+            background-color: #5b99cf;
+            box-shadow: 0 8px 20px rgba(116, 172, 223, 0.6);
+        }
+
         /* Sección Títulos */
         .section-title {
             text-align: center;
@@ -181,11 +249,11 @@
         }
 
         .img-3d {
-            background-image: url('1.jpg'); /* Usamos tus llaveros como portada de 3D */
+            background-image: url('1.jpg');
         }
 
         .img-subli {
-            background-image: url('Gorra.jpg'); /* Portada de sublimación */
+            background-image: url('Gorra.jpg');
         }
 
         .card-body {
@@ -334,6 +402,7 @@
         @media (max-width: 768px) {
             header h1 { font-size: 2.3rem; }
             .card { min-width: 100%; }
+            .promo-bandera { padding: 20px; text-align: center; }
         }
     </style>
 </head>
@@ -356,6 +425,18 @@
             <a href="https://wa.me/5493513213802?text=Hola!%20Quiero%20cotizar%20un%20trabajo" class="btn" target="_blank">¡Cotizá tu idea por WhatsApp!</a>
         </div>
     </header>
+
+    <!-- SECCIÓN TEMPORADA: JURA DE LA BANDERA -->
+    <section class="promo-bandera">
+        <div class="promo-bandera-text">
+            <h2>¡Se viene la <span>Jura a la Bandera</span>! 🇦🇷</h2>
+            <p>Prepará un recuerdo inolvidable para los alumnos. Fabricamos <strong>medallas personalizadas</strong> y <strong>bandas de juramento</strong> con diseños exclusivos para cada colegio o institución. Combos especiales por cantidad para egresaditos y promociones.</p>
+            <a href="https://wa.me/5493513213802?text=Hola!%20Quiero%20presupuesto%20por%20las%20medallas%20y%20bandas%20de%20la%20Jura%20de%20la%20Bandera" class="btn btn-patrio" target="_blank"><i class="fas fa-certificate"></i> Consultar Combos Escolares</a>
+        </div>
+        <div class="promo-bandera-img">
+            <img src="image_c8e81b.jpg" alt="Medallas y Bandas de Juramento a la Bandera">
+        </div>
+    </section>
 
     <!-- SERVICIOS -->
     <h2 class="section-title">Nuestros Servicios</h2>
@@ -393,6 +474,12 @@
     <p class="section-subtitle">Mirá los últimos trabajos entregados a nuestros clientes</p>
     
     <section class="gallery-container">
+        <!-- Destacado Bandera -->
+        <div class="gallery-item" style="border: 2px solid var(--patria-blue);">
+            <img src="image_c8e81b.jpg" alt="Medallas y bandas escolares">
+            <p style="color: #1d3557; font-weight: bold;">Medallas y Bandas de Juramento</p>
+        </div>
+
         <!-- Fila de Indumentaria y Gorras -->
         <div class="gallery-item">
             <img src="Gorra.jpg" alt="Gorras Personalizadas">

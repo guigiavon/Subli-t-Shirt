@@ -17,7 +17,8 @@
             --whatsapp-green: #25d366;
             --facebook-blue: #1877f2;
             --instagram-pink: #e1306c;
-            --patria-blue: #74acdf; /* Celeste institucional para la sección especial */
+            --patria-blue: #74acdf; /* Celeste institucional */
+            --father-tan: #b08d57; /* Bronce/Dorado elegante */
         }
 
         * {
@@ -108,11 +109,11 @@
             display: inline-block;
             background-color: var(--brand-color);
             color: white;
-            padding: 16px 36px;
+            padding: 14px 30px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             box-shadow: 0 5px 20px rgba(255, 59, 48, 0.4);
             transition: all 0.3s ease;
         }
@@ -123,97 +124,121 @@
             background-color: #ff2417;
         }
 
-        /* SECCIÓN ESPECIAL: JURA DE LA BANDERA */
-        .promo-bandera {
-            background: linear-gradient(135deg, #ffffff 0%, #f0f7fc 100%);
-            border-left: 8px solid var(--patria-blue);
-            border-right: 8px solid var(--patria-blue);
+        /* SECCIÓN DOBLE: TEMPORADA JUNIO */
+        .seccion-junio {
             max-width: 1140px;
             margin: 40px auto 10px;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(116, 172, 223, 0.15);
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
+            padding: 0 20px;
+        }
+
+        .titulo-junio {
+            text-align: center;
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--dark-bg);
+            margin-bottom: 30px;
+        }
+
+        .grid-junio {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
             gap: 30px;
         }
 
-        .promo-bandera-text {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .promo-bandera-text h2 {
-            font-size: 2.2rem;
-            color: #1d3557;
-            margin-bottom: 15px;
-            font-weight: 800;
-        }
-
-        .promo-bandera-text h2 span {
-            color: var(--patria-blue);
-        }
-
-        .promo-bandera-text p {
-            font-size: 1.15rem;
-            margin-bottom: 20px;
-            color: #4a5568;
-        }
-
-        .btn-patrio {
-            background-color: var(--patria-blue);
-            box-shadow: 0 5px 15px rgba(116, 172, 223, 0.4);
-        }
-        .btn-patrio:hover {
-            background-color: #5b99cf;
-            box-shadow: 0 8px 20px rgba(116, 172, 223, 0.6);
-        }
-
-        /* CONFIGURACIÓN DEL CARRUSEL AUTOMÁTICO (2 IMÁGENES SELECCIONADAS) */
-        .promo-bandera-img {
-            flex: 1;
-            min-width: 300px;
-            max-width: 550px;
-            height: 380px; /* Altura fija para estabilidad estética */
+        .bloque-especial {
+            background: #ffffff;
+            border-radius: 20px;
             overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            position: relative;
-        }
-
-        .slider-wrapper {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
             display: flex;
-            width: 200%; /* 100% por cada una de las 2 imágenes */
-            height: 100%;
-            animation: carruselPatrio 8s infinite ease-in-out; /* 4 segundos por imagen */
-        }
-
-        .slide-item {
-            width: 100%;
-            height: 100%;
-        }
-
-        .slide-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Adapta la imagen sin estirarla */
-            display: block;
+            flex-direction: column;
+            border-top: 6px solid var(--brand-color);
             transition: transform 0.3s;
         }
 
-        .slide-item img:hover {
-            transform: scale(1.02);
+        .bloque-especial:hover {
+            transform: translateY(-5px);
         }
 
-        /* ANIMACIÓN PARA 2 IMÁGENES */
-        @keyframes carruselPatrio {
+        .bloque-bandera { border-top-color: var(--patria-blue); }
+        .bloque-padre { border-top-color: var(--father-tan); }
+
+        .bloque-img {
+            height: 320px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bloque-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Mini carrusel interno para la sección bandera */
+        .slider-mini {
+            display: flex;
+            width: 200%;
+            height: 100%;
+            animation: carruselMini 8s infinite ease-in-out;
+        }
+        .slider-mini img { width: 50%; height: 100%; object-fit: cover; }
+
+        @keyframes carruselMini {
             0%, 45% { transform: translateX(0); }
             50%, 95% { transform: translateX(-50%); }
             100% { transform: translateX(0); }
         }
 
-        /* Sección Títulos */
+        .bloque-contenido {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .bloque-contenido h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .bloque-bandera h3 { color: #1d3557; }
+        .bloque-padre h3 { color: #2b2216; }
+
+        .bloque-contenido p {
+            font-size: 1.05rem;
+            color: #4a5568;
+            margin-bottom: 20px;
+        }
+
+        .lista-items {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .lista-items li {
+            margin-bottom: 8px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .bloque-bandera .lista-items li::before { content: '🏅'; position: absolute; left: 0; }
+        .bloque-padre .lista-items li::before { content: '🎁'; position: absolute; left: 0; }
+
+        .btn-bloque {
+            width: 100%;
+            text-align: center;
+        }
+        .btn-bandera { background-color: var(--patria-blue); box-shadow: 0 4px 12px rgba(116, 172, 223, 0.3); }
+        .btn-bandera:hover { background-color: #5b99cf; }
+        .btn-padre { background-color: var(--father-tan); box-shadow: 0 4px 12px rgba(176, 141, 87, 0.3); }
+        .btn-padre:hover { background-color: #967545; }
+
+        /* Títulos de Secciones */
         .section-title {
             text-align: center;
             margin: 60px 20px 20px;
@@ -271,44 +296,16 @@
             background-position: center;
         }
 
-        .img-3d {
-            background-image: url('1.jpg');
-        }
+        .img-3d { background-image: url('1.jpg'); }
+        .img-subli { background-image: url('Gorra.jpg'); }
 
-        .img-subli {
-            background-image: url('Gorra.jpg');
-        }
+        .card-body { padding: 35px; flex-grow: 1; }
+        .card h2 { font-size: 1.75rem; margin-bottom: 15px; color: var(--dark-bg); }
+        .card ul { list-style: none; }
+        .card ul li { margin-bottom: 12px; position: relative; padding-left: 28px; }
+        .card ul li::before { content: '✓'; position: absolute; left: 0; color: var(--brand-color); font-weight: bold; }
 
-        .card-body {
-            padding: 35px;
-            flex-grow: 1;
-        }
-
-        .card h2 {
-            font-size: 1.75rem;
-            margin-bottom: 15px;
-            color: var(--dark-bg);
-        }
-
-        .card ul {
-            list-style: none;
-        }
-
-        .card ul li {
-            margin-bottom: 12px;
-            position: relative;
-            padding-left: 28px;
-        }
-
-        .card ul li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--brand-color);
-            font-weight: bold;
-        }
-
-        /* Galería de Trabajos Reales */
+        /* Galería */
         .gallery-container {
             max-width: 1140px;
             margin: 0 auto 60px;
@@ -328,18 +325,8 @@
             flex-direction: column;
         }
 
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-            display: block;
-        }
-
+        .gallery-item:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.12); }
+        .gallery-item img { width: 100%; height: 280px; object-fit: cover; display: block; }
         .gallery-item p {
             padding: 15px;
             text-align: center;
@@ -351,82 +338,26 @@
             border-top: 1px solid #f1f1f4;
         }
 
-        /* Cómo Trabajamos */
-        .steps-section {
-            background-color: var(--dark-bg);
-            color: var(--text-light);
-            padding: 70px 20px;
-        }
-
-        .steps-container {
-            max-width: 1000px;
-            margin: 40px auto 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 25px;
-        }
-
-        .step {
-            flex: 1;
-            min-width: 280px;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 35px 25px;
-            border-radius: 15px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .step-num {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--brand-color);
-            margin-bottom: 15px;
-        }
+        /* Pasos */
+        .steps-section { background-color: var(--dark-bg); color: var(--text-light); padding: 70px 20px; }
+        .steps-container { max-width: 1000px; margin: 40px auto 0; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 25px; }
+        .step { flex: 1; min-width: 280px; background: rgba(255, 255, 255, 0.05); padding: 35px 25px; border-radius: 15px; text-align: center; border: 1px solid rgba(255, 255, 255, 0.1); }
+        .step-num { font-size: 2.5rem; font-weight: 800; color: var(--brand-color); margin-bottom: 15px; }
 
         /* Footer */
-        footer {
-            background-color: #0b0b0c;
-            color: white;
-            text-align: center;
-            padding: 60px 20px 40px;
-        }
-
-        footer p {
-            margin-bottom: 25px;
-            color: #a0a0a5;
-        }
-
-        .btn-wp {
-            background-color: var(--whatsapp-green);
-            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
-            margin-bottom: 30px;
-        }
-
-        .btn-wp:hover {
-            background-color: #20ba5a;
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
-        }
-
-        .footer-socials {
-            margin-bottom: 30px;
-        }
-
-        .footer-socials a {
-            color: white;
-            font-size: 2rem;
-            margin: 0 15px;
-            transition: color 0.3s;
-        }
-
+        footer { background-color: #0b0b0c; color: white; text-align: center; padding: 60px 20px 40px; }
+        footer p { margin-bottom: 25px; color: #a0a0a5; }
+        .btn-wp { background-color: var(--whatsapp-green); box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3); margin-bottom: 30px; }
+        .btn-wp:hover { background-color: #20ba5a; }
+        .footer-socials { margin-bottom: 30px; }
+        .footer-socials a { color: white; font-size: 2rem; margin: 0 15px; transition: color 0.3s; }
         .footer-socials a.fb:hover { color: var(--facebook-blue); }
         .footer-socials a.ig:hover { color: var(--instagram-pink); }
 
         @media (max-width: 768px) {
             header h1 { font-size: 2.3rem; }
-            .card { min-width: 100%; }
-            .promo-bandera { padding: 20px; text-align: center; }
-            .promo-bandera-img { height: 300px; }
+            .grid-junio { grid-template-columns: 1fr; }
+            .bloque-img { height: 260px; }
         }
     </style>
 </head>
@@ -450,36 +381,50 @@
         </div>
     </header>
 
-    <!-- SECCIÓN TEMPORADA: JURA DE LA BANDERA + IMPRESIÓN 3D (CON CARRUSEL ACTUALIZADO) -->
-    <section class="promo-bandera">
-        <div class="promo-bandera-text">
-            <h2>¡Se viene la <span>Jura a la Bandera</span>! 🇦🇷</h2>
-            <p>Prepará un recuerdo único para los alumnos. Combinamos lo mejor de la <strong>Sublimación</strong> y la <strong>Impresión 3D</strong> para ofrecerte combos escolares que sorprendan a todos.</p>
+    <!-- SECCIÓN ESPECIAL COMBINADA: TEMPORADA DE JUNIO -->
+    <section class="seccion-junio">
+        <h2 class="titulo-junio">🔥 Especiales de Junio en SubliTshirt</h2>
+        
+        <div class="grid-junio">
             
-            <div style="background: rgba(116, 172, 223, 0.1); padding: 15px; border-radius: 10px; margin-bottom: 20px; font-size: 0.95rem;">
-                <strong style="color: #1d3557; display: block; margin-bottom: 8px;">🎓 Opciones para Instituciones y Egresaditos:</strong>
-                <ul style="list-style: none; padding-left: 0;">
-                    <li style="margin-bottom: 5px; padding-left: 0;">🏅 <strong>Combos Tradicionales:</strong> Medallas con cinta patria y bandas de juramento personalizadas.</li>
-                    <li style="margin-bottom: 5px; padding-left: 0;">✨ <strong>Souvenirs Premium 3D:</strong> Nombres corpóreos personalizados y llaveros temáticos a pedido.</li>
-                    <li style="margin-bottom: 5px; padding-left: 0;">📐 <strong>A medida:</strong> Diseños exclusivos con el nombre de cada alumno y el colegio.</li>
-                </ul>
-            </div>
-
-            <a href="https://wa.me/5493513213802?text=Hola!%20Quiero%20presupuesto%20por%20los%20combos%20de%20Jura%20de%20la%20Bandera%20y%20recuerdos%203D" class="btn btn-patrio" target="_blank"><i class="fas fa-certificate"></i> Consultar Combos y Precios</a>
-        </div>
-
-        <!-- CARRUSEL DE IMÁGENES AUTOMÁTICO (2 FOTOS EXCLUSIVAS) -->
-        <div class="promo-bandera-img">
-            <div class="slider-wrapper">
-                <!-- Imagen 1: Bandas de promesa impresas con flecos -->
-                <div class="slide-item">
-                    <img src="image_c87054.jpg" alt="Bandas de Promesa a la Bandera Personalizadas">
+            <!-- BLOQUE 1: JURA DE LA BANDERA -->
+            <div class="bloque-especial bloque-bandera">
+                <div class="bloque-img">
+                    <div class="slider-mini">
+                        <img src="image_c87054.jpg" alt="Bandas de Promesa a la Bandera">
+                        <img src="image_c8701c.jpg" alt="Medallas y combos escolares">
+                    </div>
                 </div>
-                <!-- Imagen 2: Medallas y combos escolares -->
-                <div class="slide-item">
-                    <img src="image_c8701c.jpg" alt="Medallas de Juramento a la Bandera y Egresaditos">
+                <div class="bloque-contenido">
+                    <h3>Jura a la Bandera 🇦🇷</h3>
+                    <p>Prepará un recuerdo único e institucional para los alumnos en su promesa. Diseños a medida con acabados premium.</p>
+                    <ul class="lista-items">
+                        <li><strong>Bandas de Juramento:</strong> Impresiones nítidas con elegantes flecos dorados.</li>
+                        <li><strong>Medallas del Colegio:</strong> Con cinta patria y personalizadas con el nombre del alumno.</li>
+                        <li><strong>Combos para Egresaditos:</strong> Souvenirs y llaveros 3D ideales para regalar en cantidad.</li>
+                    </ul>
+                    <a href="https://wa.me/5493513213802?text=Hola!%20Quiero%20presupuesto%20por%20los%20combos%20de%20Jura%20de%20la%20Bandera" class="btn btn-bloque btn-bandera" target="_blank"><i class="fas fa-certificate"></i> Ver Combos Escolares</a>
                 </div>
             </div>
+
+            <!-- BLOQUE 2: DÍA DEL PADRE (ARMALO VOS) -->
+            <div class="bloque-especial bloque-padre">
+                <div class="bloque-img">
+                    <img src="image_c7ff1f.jpg" alt="Regalos personalizados Día del Padre">
+                </div>
+                <div class="bloque-contenido">
+                    <h3>Día del Padre ¡Armalo vos! 🎁</h3>
+                    <p>Sorprendé a papá y al abuelo con un regalo personalizado hecho con sus mejores fotos, frases y pasiones.</p>
+                    <ul class="lista-items">
+                        <li><strong>Llaveros 3D:</strong> Diseños personalizados calados como "Papá, el rey del asado".</li>
+                        <li><strong>Almohadones con Fotos:</strong> Collages familiares de alta definición con dedicatorias.</li>
+                        <li><strong>Chopps y Tazas:</strong> Diseños futboleros de Talleres, Belgrano o el club que prefiera.</li>
+                        <li><strong>Cosas para Sublimar:</strong> Todo tipo de productos listos para estampar tu idea.</li>
+                    </ul>
+                    <a href="https://wa.me/5493513213802?text=Hola!%20Quiero%20armar%20un%20regalo%20personalizado%20para%20el%20Dia%20del%20Padre" class="btn btn-bloque btn-padre" target="_blank"><i class="fas fa-gift"></i> Armar Regalo de Papá</a>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -519,62 +464,60 @@
     <p class="section-subtitle">Mirá los últimos trabajos entregados a nuestros clientes</p>
     
     <section class="gallery-container">
-        <!-- Destacado 1: Bandas de Promesa -->
+        <!-- Foto Día del Padre -->
+        <div class="gallery-item" style="border: 2px solid var(--father-tan);">
+            <img src="image_c7ff1f.jpg" alt="Combos personalizados para el Día del Padre">
+            <p style="color: #2b2216; font-weight: bold;">Combos Día del Padre (Almohadón, Chopp y Llavero)</p>
+        </div>
+
+        <!-- Foto Bandera 1 -->
         <div class="gallery-item" style="border: 2px solid var(--patria-blue);">
-            <img src="image_c87054.jpg" alt="Bandas de Promesa a la Bandera personalizadas de alta calidad">
+            <img src="image_c87054.jpg" alt="Bandas de Promesa a la Bandera personalizadas">
             <p style="color: #1d3557; font-weight: bold;">Bandas de Promesa Personalizadas</p>
         </div>
 
-        <!-- Destacado 2: Medallas e Insignias -->
+        <!-- Foto Bandera 2 -->
         <div class="gallery-item" style="border: 2px solid var(--patria-blue);">
             <img src="image_c8701c.jpg" alt="Medallas y combos escolares para juramento">
             <p style="color: #1d3557; font-weight: bold;">Medallas y Combos de Juramento</p>
         </div>
 
-        <!-- Fila de Indumentaria y Gorras -->
+        <!-- Resto de la galería original -->
+        <div class="gallery-item">
+            <img src="chop.jpg" alt="Chopp Personalizado">
+            <p>Chopps Personalizados para Regalos</p>
+        </div>
         <div class="gallery-item">
             <img src="Gorra.jpg" alt="Gorras Personalizadas">
             <p>Gorras Trucker por Mayor</p>
         </div>
         <div class="gallery-item">
-            <img src="RemeraBlanca.gif" alt="Remera Blanca Simona">
+            <img src="RemeraBlanca.gif" alt="Remera Blanca">
             <p>Remeras Infantiles Personalizadas</p>
         </div>
         <div class="gallery-item">
-            <img src="Remeranegra.gif" alt="Remera Negra Among Us">
+            <img src="Remeranegra.gif" alt="Remera Negra">
             <p>Estampados Temáticos en Remeras</p>
         </div>
-
-        <!-- Fila de Regalería y Tazas/Chopps -->
         <div class="gallery-item">
-            <img src="chop.jpg" alt="Chopp Personalizado Día del Padre">
-            <p>Chopps Personalizados para Regalos</p>
-        </div>
-        <div class="gallery-item">
-            <img src="Choppceramica.gif" alt="Chopp de Cerámica Personalizado">
+            <img src="Choppceramica.gif" alt="Chopp de Cerámica">
             <p>Chopps de Cerámica de Alta Calidad</p>
         </div>
         <div class="gallery-item">
-            <img src="tazamagica.jpg" alt="Taza Mágica Personalizada">
+            <img src="tazamagica.jpg" alt="Taza Mágica">
             <p>Tazas Mágicas Sorpresa</p>
         </div>
         <div class="gallery-item">
-            <img src="setdejardin.gif" alt="Set de Jardin Completo">
+            <img src="setdejardin.gif" alt="Set de Jardin">
             <p>Sets Escolares y de Jardín</p>
         </div>
         <div class="gallery-item">
-            <img src="matermo.jpg" alt="Mate Térmico Personalizado">
+            <img src="matermo.jpg" alt="Mate Térmico">
             <p>Mates y Vasos Térmicos</p>
         </div>
-
-        <!-- Fila de Impresión 3D -->
         <div class="gallery-item">
-            <img src="1.jpg" alt="Llaveros 3D con nombres">
+            <img src="1.jpg" alt="Llaveros 3D">
             <p>Llaveros con Nombres en Impresión 3D</p>
-        </div>
-        <div class="gallery-item">
-            <img src="2.jpg" alt="Llaveros Souvenirs 3D">
-            <p>Souvenirs y Llaveros Corporativos</p>
         </div>
     </section>
 

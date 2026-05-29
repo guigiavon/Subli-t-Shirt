@@ -161,26 +161,6 @@
             color: #4a5568;
         }
 
-        .promo-bandera-img {
-            flex: 1;
-            min-width: 300px;
-            max-width: 550px;
-            overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        }
-
-        .promo-bandera-img img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.3s;
-        }
-
-        .promo-bandera-img img:hover {
-            transform: scale(1.02);
-        }
-
         .btn-patrio {
             background-color: var(--patria-blue);
             box-shadow: 0 5px 15px rgba(116, 172, 223, 0.4);
@@ -188,6 +168,49 @@
         .btn-patrio:hover {
             background-color: #5b99cf;
             box-shadow: 0 8px 20px rgba(116, 172, 223, 0.6);
+        }
+
+        /* CONFIGURACIÓN DEL CARRUSEL AUTOMÁTICO (2 IMÁGENES SELECCIONADAS) */
+        .promo-bandera-img {
+            flex: 1;
+            min-width: 300px;
+            max-width: 550px;
+            height: 380px; /* Altura fija para estabilidad estética */
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .slider-wrapper {
+            display: flex;
+            width: 200%; /* 100% por cada una de las 2 imágenes */
+            height: 100%;
+            animation: carruselPatrio 8s infinite ease-in-out; /* 4 segundos por imagen */
+        }
+
+        .slide-item {
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Adapta la imagen sin estirarla */
+            display: block;
+            transition: transform 0.3s;
+        }
+
+        .slide-item img:hover {
+            transform: scale(1.02);
+        }
+
+        /* ANIMACIÓN PARA 2 IMÁGENES */
+        @keyframes carruselPatrio {
+            0%, 45% { transform: translateX(0); }
+            50%, 95% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
         }
 
         /* Sección Títulos */
@@ -403,6 +426,7 @@
             header h1 { font-size: 2.3rem; }
             .card { min-width: 100%; }
             .promo-bandera { padding: 20px; text-align: center; }
+            .promo-bandera-img { height: 300px; }
         }
     </style>
 </head>
@@ -426,15 +450,36 @@
         </div>
     </header>
 
-    <!-- SECCIÓN TEMPORADA: JURA DE LA BANDERA -->
+    <!-- SECCIÓN TEMPORADA: JURA DE LA BANDERA + IMPRESIÓN 3D (CON CARRUSEL ACTUALIZADO) -->
     <section class="promo-bandera">
         <div class="promo-bandera-text">
             <h2>¡Se viene la <span>Jura a la Bandera</span>! 🇦🇷</h2>
-            <p>Prepará un recuerdo inolvidable para los alumnos. Fabricamos <strong>medallas personalizadas</strong> y <strong>bandas de juramento</strong> con diseños exclusivos para cada colegio o institución. Combos especiales por cantidad para egresaditos y promociones.</p>
-            <a href="https://wa.me/5493513213802?text=Hola!%20Quiero%20presupuesto%20por%20las%20medallas%20y%20bandas%20de%20la%20Jura%20de%20la%20Bandera" class="btn btn-patrio" target="_blank"><i class="fas fa-certificate"></i> Consultar Combos Escolares</a>
+            <p>Prepará un recuerdo único para los alumnos. Combinamos lo mejor de la <strong>Sublimación</strong> y la <strong>Impresión 3D</strong> para ofrecerte combos escolares que sorprendan a todos.</p>
+            
+            <div style="background: rgba(116, 172, 223, 0.1); padding: 15px; border-radius: 10px; margin-bottom: 20px; font-size: 0.95rem;">
+                <strong style="color: #1d3557; display: block; margin-bottom: 8px;">🎓 Opciones para Instituciones y Egresaditos:</strong>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="margin-bottom: 5px; padding-left: 0;">🏅 <strong>Combos Tradicionales:</strong> Medallas con cinta patria y bandas de juramento personalizadas.</li>
+                    <li style="margin-bottom: 5px; padding-left: 0;">✨ <strong>Souvenirs Premium 3D:</strong> Nombres corpóreos personalizados y llaveros temáticos a pedido.</li>
+                    <li style="margin-bottom: 5px; padding-left: 0;">📐 <strong>A medida:</strong> Diseños exclusivos con el nombre de cada alumno y el colegio.</li>
+                </ul>
+            </div>
+
+            <a href="https://wa.me/5493513213802?text=Hola!%20Quiero%20presupuesto%20por%20los%20combos%20de%20Jura%20de%20la%20Bandera%20y%20recuerdos%203D" class="btn btn-patrio" target="_blank"><i class="fas fa-certificate"></i> Consultar Combos y Precios</a>
         </div>
+
+        <!-- CARRUSEL DE IMÁGENES AUTOMÁTICO (2 FOTOS EXCLUSIVAS) -->
         <div class="promo-bandera-img">
-            <img src="image_c8e81b.jpg" alt="Medallas y Bandas de Juramento a la Bandera">
+            <div class="slider-wrapper">
+                <!-- Imagen 1: Bandas de promesa impresas con flecos -->
+                <div class="slide-item">
+                    <img src="image_c87054.jpg" alt="Bandas de Promesa a la Bandera Personalizadas">
+                </div>
+                <!-- Imagen 2: Medallas y combos escolares -->
+                <div class="slide-item">
+                    <img src="image_c8701c.jpg" alt="Medallas de Juramento a la Bandera y Egresaditos">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -474,10 +519,16 @@
     <p class="section-subtitle">Mirá los últimos trabajos entregados a nuestros clientes</p>
     
     <section class="gallery-container">
-        <!-- Destacado Bandera -->
+        <!-- Destacado 1: Bandas de Promesa -->
         <div class="gallery-item" style="border: 2px solid var(--patria-blue);">
-            <img src="image_c8e81b.jpg" alt="Medallas y bandas escolares">
-            <p style="color: #1d3557; font-weight: bold;">Medallas y Bandas de Juramento</p>
+            <img src="image_c87054.jpg" alt="Bandas de Promesa a la Bandera personalizadas de alta calidad">
+            <p style="color: #1d3557; font-weight: bold;">Bandas de Promesa Personalizadas</p>
+        </div>
+
+        <!-- Destacado 2: Medallas e Insignias -->
+        <div class="gallery-item" style="border: 2px solid var(--patria-blue);">
+            <img src="image_c8701c.jpg" alt="Medallas y combos escolares para juramento">
+            <p style="color: #1d3557; font-weight: bold;">Medallas y Combos de Juramento</p>
         </div>
 
         <!-- Fila de Indumentaria y Gorras -->
@@ -508,7 +559,7 @@
             <p>Tazas Mágicas Sorpresa</p>
         </div>
         <div class="gallery-item">
-            <img src="setdejardin.gif" alt="Set de Jardín Completo">
+            <img src="setdejardin.gif" alt="Set de Jardin Completo">
             <p>Sets Escolares y de Jardín</p>
         </div>
         <div class="gallery-item">
